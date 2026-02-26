@@ -5,13 +5,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Construction - Evernote Company SARLU</title>
 
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=El+Messiri:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   GLOBAL
+========================= */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f7fb;
+  color: #222;
+}
+
+/* =========================
+  HEADER
+========================= */
+header {
+  background: #0a2a43;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+header img {
+  height: 60px;
+}
+
+header h1 {
+ font-family: 'El Messiri', sans-serif;
+  margin: 0;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav {
+  background: #1464a5;
+  text-align: center;
+  padding: 12px;
+}
+
+nav a {
+  color: white;
+  margin: 15px;
+  text-decoration: none;
+   font-weight: bold;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+   SECTION
+========================= */
+section {
+  background: white;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 1000px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+  /* =========================
+   SLIDER / GALLERY
+========================= */
+.gallery {
+  position: relative;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 400px;
+}
+
+.gallery img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;                /* cachée au départ */
+  transition: opacity 1s ease-in-out; /* effet fondu */
+  border-radius: 12px;
+  object-fit: cover;
+  height: 400px;
+}
+
+.gallery img.active {
+  opacity: 1; /* image visible */
+  z-index: 1;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.buttons {
+  text-align: center;
+    margin-top: 30px;
+}
+
+.buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 25px;
+  background: #1464a5;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.buttons a:hover {
+  background: #0a2a43;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png">
   <h1>Nos réalisations en construction</h1>
 </header>
 
@@ -41,22 +159,26 @@
   <a href="index.html">Retour Accueil</a>
 </div>
 
-<script>
+ <script>
 const slides = document.querySelectorAll('.gallery img');
 let current = 0;
 
 function showSlide(index) {
   slides.forEach((img, i) => {
     img.classList.remove('active');
-    if (i === index) img.classList.add('active');
+    if(i === index) img.classList.add('active');
   });
 }
 
+// Affiche la première image
+showSlide(current);
+
+// Change d'image toutes les 3 secondes
 setInterval(() => {
   current++;
-  if (current >= slides.length) current = 0;
+  if(current >= slides.length) current = 0;
   showSlide(current);
-}, 3500);
+  }, 3000);
 </script>
 
 </body>
