@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos Services</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<img src="logo.png" alt="logo">
+<h1>Nos Services</h1>
+</header>
+
+<nav>
+<a href="index.html">Accueil</a>
+<a href="services.html">Services</a>
+<a href="construction.html">Construction</a>
+<a href="contact.html">Contact</a>
+<a href="comptes.html">Paiement</a>
+</nav>
+
+<section class="services">
+
+<div class="service-box">
+<h2>Nettoyage de Véhicules</h2>
+<p>Service professionnel de nettoyage.</p>
+<button class="btn" onclick="openModal('Réserver le service Nettoyage')">Réserver</button>
+</div>
+
+<div class="service-box">
+<h2>Formation Hygiène & Sécurité</h2>
+<p>Formation professionnelle pour entreprises.</p>
+<button class="btn" onclick="openModal('S\'inscrire à la formation HSE')">S'inscrire</button>
+</div>
+
+<div class="service-box">
+<h2>Consultation & Conseil</h2>
+<p>Accompagnement et facilitation de projets.</p>
+<button class="btn" onclick="openModal('Prendre rendez-vous pour consultation')">Prendre rendez-vous</button>
+</div>
+
+<div class="service-box">
+<h2>Construction & Réfection</h2>
+<p>Bâtiments résidentiels et industriels.</p>
+<button class="btn" onclick="openModal('Demande de devis Construction & Réfection')">Demander ce service</button>
+</div>
+
+<div class="service-box">
+<h2>Fourniture & Vente de Matériels</h2>
+<p>Produits et équipements professionnels.</p>
+<button class="btn" onclick="openModal('Commander Matériels')">Commander</button>
+</div>
+
+<div class="service-box">
+<h2>Froid Industriel & Commercial</h2>
+<p>Installation et maintenance frigorifique.</p>
+<button class="btn" onclick="openModal('Service Froid Industriel & Commercial')">Contacter</button>
+</div>
+
+<div class="service-box">
+<h2>Électricité & Énergie Solaire</h2>
+<p>Installation électrique et panneaux solaires.</p>
+<button class="btn" onclick="openModal('Service Électricité & Énergie Solaire')">Demander un devis</button>
+</div>
+
+<div class="service-box">
+<h2>Maintenance & Réparation</h2>
+<p>Entretien et dépannage technique.</p>
+<button class="btn" onclick="openModal('Service Maintenance & Réparation')">Demander intervention</button>
+</div>
+
+<div class="service-box">
+<h2>Transport & Logistique</h2>
+<p>Solutions de transport fiables.</p>
+<button class="btn" onclick="openModal('Service Transport & Logistique')">Demander</button>
+</div>
+
+</section>
+
+<!-- MODAL -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle">Formulaire</h2>
+    <form id="serviceForm">
+      <label>Nom:</label><br>
+      <input type="text" name="nom" required><br>
+      <label>Post-nom:</label><br>
+      <input type="text" name="postnom" required><br>
+      <label>Prénom:</label><br>
+      <input type="text" name="prenom" required><br>
+      <label>Numéro de téléphone:</label><br>
+      <input type="tel" name="numero" required><br>
+      <label>Email:</label><br>
+      <input type="email" name="email" required><br>
+      <label>Adresse:</label><br>
+      <input type="text" name="adresse"><br>
+      <label>Cause / Service:</label><br>
+      <textarea name="cause" required></textarea><br>
+      <button type="submit" class="btn">Envoyer sur WhatsApp & Email</button>
+    </form>
+  </div>
+</div>
+
+<div class="float-buttons">
+<a class="whatsapp" href="https://wa.me/243991183933">WhatsApp</a>
+<a class="email" href="mailto:evernotecompanysarlu@gmail.com">Email</a>
+<a class="phone" href="tel:+243991183933">Appeler</a>
+</div>
+
+<script>
+function openModal(title) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('myModal').style.display = "block";
+}
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == document.getElementById('myModal')) closeModal();
+}
+document.getElementById('serviceForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var nom = this.nom.value;
+  var postnom = this.postnom.value;
+  var prenom = this.prenom.value;
+  var numero = this.numero.value;
+  var email = this.email.value;
+  var adresse = this.adresse.value;
+  var cause = this.cause.value;
+  var message = "Nom: " + nom + "\n" +
+                "Post-nom: " + postnom + "\n" +
+                "Prénom: " + prenom + "\n" +
+                "Téléphone: " + numero + "\n" +
+                "Email: " + email + "\n" +
+                "Adresse: " + adresse + "\n" +
+                "Cause / Service: " + cause;
+  // WhatsApp
+  window.open("https://wa.me/243991183933?text=" + encodeURIComponent(message), "_blank");
+  // Email
+  window.open("mailto:evernotecompanysarlu@gmail.com?subject=" + encodeURIComponent("Demande Service: " + cause) + "&body=" + encodeURIComponent(message), "_blank");
+  closeModal();
+});
+</script>
+
+</body>
+</html>
