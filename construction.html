@@ -4,12 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Construction - Evernote Company SARLU</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
+  <img src="logo.png">
   <h1>Nos réalisations en construction</h1>
 </header>
 
@@ -46,15 +48,15 @@ let current = 0;
 function showSlide(index) {
   slides.forEach((img, i) => {
     img.classList.remove('active');
-    if(i === index) img.classList.add('active');
+    if (i === index) img.classList.add('active');
   });
 }
 
 setInterval(() => {
   current++;
-  if(current >= slides.length) current = 0;
+  if (current >= slides.length) current = 0;
   showSlide(current);
-}, 4000);
+}, 3500);
 </script>
 
 </body>
