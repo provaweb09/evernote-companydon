@@ -24,13 +24,12 @@ header {
 }
 
 header img {
-  height: 50px;
+  height: 60px;
 }
 
 header h1 {
   font-family: 'El Messiri', sans-serif;
   margin: 0;
-  text-align: center;
 }
 
 /* =========================
@@ -44,13 +43,28 @@ nav {
 
 nav a {
   color: white;
-  margin: 12px;
+  margin: 15px;
   text-decoration: none;
   font-weight: bold;
 }
 
 nav a:hover {
   opacity: 0.8;
+}
+
+/* =========================
+   HERO / ACCUEIL
+========================= */
+.hero {
+  background: url("background.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h2 {
+  font-family: 'El Messiri', sans-serif;
+  font-size: 42px;
 }
 
 /* =========================
@@ -63,51 +77,42 @@ section {
   border-radius: 12px;
   max-width: 1000px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  text-align: center;
 }
 
 /* =========================
-   GALLERY / SLIDER
+   SERVICES
 ========================= */
-.gallery {
-  position: relative;
-  max-width: 1000px;
-  margin: 40px auto;
-  overflow: hidden;
-  border-radius: 12px;
-  height: 400px;
-  background: #000;
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-.gallery img {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+.service-box {
+  background: white;
+  padding: 20px;
   border-radius: 12px;
-  object-fit: cover;
-  height: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
 }
 
-.gallery img.active {
-  opacity: 1;
-  z-index: 1;
+.service-box:hover {
+  transform: translateY(-5px);
+}
+
+.service-box h2 {
+  font-family: 'El Messiri', sans-serif;
+  color: #0a2a43;
 }
 
 /* =========================
    BUTTONS
 ========================= */
-.buttons {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.buttons a {
+.btn {
   display: inline-block;
-  margin: 10px;
-  padding: 12px 25px;
+  margin-top: 10px;
+  padding: 12px 20px;
   background: #1464a5;
   color: white;
   text-decoration: none;
@@ -115,34 +120,116 @@ section {
   font-weight: bold;
 }
 
-.buttons a:hover {
+/* =========================
+   FLOATING BUTTONS
+========================= */
+.float-buttons {
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.float-buttons a {
+  text-decoration: none;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.whatsapp { background: #25D366; }
+.email    { background: #d44638; }
+.phone    { background: #1464a5; }
+
+/* =========================
+   FOOTER
+========================= */
+footer {
   background: #0a2a43;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
 }
 
 /* =========================
-   MOBILE
+   MODAL
 ========================= */
-@media (max-width: 768px) {
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
 
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
 
-  header img {
-    height: 40px;
-  }
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  nav a {
-    display: inline-block;
-    margin: 8px;
-  }
+.close:hover {
+  color: #000;
+}
 
-  .gallery {
-    height: 250px;
-  }
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
 
-  .gallery img {
-    height: 250px;
-  }
+.modal-content button {
+  width: 100%;
+}
+
+/* =========================
+   SLIDER / GALLERY
+========================= */
+.gallery {
+  position: relative;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;              /* cachée au départ */
+  transition: opacity 1s ease-in-out; /* effet fondu */
+  border-radius: 12px;
+  object-fit: cover;
+  height: 400px;
+}
+
+.gallery img.active {
+  opacity: 1; /* image visible */
+  z-index: 1;
 }
