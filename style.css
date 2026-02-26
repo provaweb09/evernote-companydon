@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=El+Messiri:wght@500;700&display=swap');
 
+/* =========================
+   GLOBAL
+========================= */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -7,7 +10,9 @@ body {
   color: #222;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 header {
   background: #0a2a43;
   color: white;
@@ -24,9 +29,12 @@ header img {
 
 header h1 {
   font-family: 'El Messiri', sans-serif;
+  margin: 0;
 }
 
-/* NAV */
+/* =========================
+   NAVIGATION
+========================= */
 nav {
   background: #1464a5;
   text-align: center;
@@ -40,7 +48,13 @@ nav a {
   font-weight: bold;
 }
 
-/* HERO */
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+   HERO / ACCUEIL
+========================= */
 .hero {
   background: url("background.jpg") center/cover no-repeat;
   color: white;
@@ -53,7 +67,9 @@ nav a {
   font-size: 42px;
 }
 
-/* SECTION */
+/* =========================
+   SECTION
+========================= */
 section {
   background: white;
   margin: 30px auto;
@@ -63,7 +79,9 @@ section {
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
-/* SERVICES */
+/* =========================
+   SERVICES
+========================= */
 .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -88,6 +106,9 @@ section {
   color: #0a2a43;
 }
 
+/* =========================
+   BUTTONS
+========================= */
 .btn {
   display: inline-block;
   margin-top: 10px;
@@ -99,7 +120,9 @@ section {
   font-weight: bold;
 }
 
-/* FLOATING BUTTONS */
+/* =========================
+   FLOATING BUTTONS
+========================= */
 .float-buttons {
   position: fixed;
   right: 15px;
@@ -119,9 +142,12 @@ section {
 }
 
 .whatsapp { background: #25D366; }
-.email { background: #d44638; }
-.phone { background: #1464a5; }
+.email    { background: #d44638; }
+.phone    { background: #1464a5; }
 
+/* =========================
+   FOOTER
+========================= */
 footer {
   background: #0a2a43;
   color: white;
@@ -130,7 +156,9 @@ footer {
   margin-top: 40px;
 }
 
-/* MODAL */
+/* =========================
+   MODAL
+========================= */
 .modal {
   display: none;
   position: fixed;
@@ -165,7 +193,8 @@ footer {
   color: #000;
 }
 
-.modal-content input, .modal-content textarea {
+.modal-content input,
+.modal-content textarea {
   width: 100%;
   padding: 10px;
   margin: 6px 0 12px 0;
@@ -176,3 +205,32 @@ footer {
 .modal-content button {
   width: 100%;
 }
+
+/* =========================
+   SLIDER / GALLERY
+========================= */
+.gallery {
+  position: relative;
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;              /* cachée au départ */
+  transition: opacity 1s ease-in-out; /* effet fondu */
+  border-radius: 12px;
+  object-fit: cover;
+  height: 400px;
+}
+
+.gallery img.active {
+  opacity: 1; /* image visible */
+  z-index: 1;
+}
+
